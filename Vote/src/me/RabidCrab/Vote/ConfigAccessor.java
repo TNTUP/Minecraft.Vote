@@ -23,7 +23,7 @@ package me.RabidCrab.Vote;
 */
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
  
 
@@ -54,7 +54,7 @@ public class ConfigAccessor {
                 throw new IllegalStateException();
             configFile = new File(dataFolder, fileName);
         }
-        fileConfiguration = YamlConfiguration.loadConfiguration(configFile);
+        fileConfiguration = YamlConfiguration.loadConfiguration(new InputStreamReader(configFile));
  
         // Look for defaults in the jar
         InputStream defConfigStream = plugin.getResource(fileName);
